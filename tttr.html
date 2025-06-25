@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildRight Construction | Create The Constructions You Want</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+            position: relative;
+            z-index: 100;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            margin-right: 15px;
+            color: #e74c3c;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        
+        .logo span {
+            color: #e74c3c;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 30px;
+        }
+        
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        nav a:hover {
+            color: #e74c3c;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 100px 0;
+            margin-bottom: 180px;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 20;
+            max-width: 600px;
+        }
+        
+        .hero h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            color: #2c3e50;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #555;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #e74c3c;
+            color: #fff;
+            padding: 15px 45px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Image Overlay Section */
+        .image-overlay {
+            position: relative;
+            height: 600px;
+            margin-top: -150px;
+        }
+        
+        .image-back {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 70%;
+            height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                         url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .image-front {
+            position: absolute;
+            top: 150px;
+            left: 0;
+            width: 50%;
+            height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+                        url('https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            border: 10px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+        
+        /* Services Section */
+        .services {
+            background: #fff;
+            padding: 100px 0;
+            margin-top: 100px;
+            position: relative;
+        }
+        
+        .services::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, #fff);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h3 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #e74c3c;
+        }
+        
+        .services-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        
+        .services-list {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 40px;
+        }
+        
+        .services-list ul {
+            list-style: none;
+        }
+        
+        .services-list li {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-left: 4px solid #e74c3c;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .services-list li:hover {
+            transform: translateX(10px);
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .services-list li i {
+            margin-right: 10px;
+            color: #e74c3c;
+        }
+        
+        .projects-button {
+            display: inline-block;
+            background: transparent;
+            color: #e74c3c;
+            padding: 12px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid #e74c3c;
+            border-radius: 4px;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+        
+        .projects-button:hover {
+            background: #e74c3c;
+            color: #fff;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(to right, #2c3e50, #4a6580);
+            padding: 80px 0;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .stats-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            padding: 30px;
+            min-width: 200px;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #e74c3c;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .project-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .project-info p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+        }
+        
+        .footer-column p {
+            margin-bottom: 15px;
+            color: #bbb;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #e74c3c;
+        }
+        
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: #e74c3c;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .image-overlay {
+                height: 500px;
+            }
+            
+            .image-back {
+                height: 400px;
+            }
+            
+            .image-front {
+                height: 400px;
+                top: 100px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0 10px;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .image-overlay {
+                height: 400px;
+                margin-top: -50px;
+            }
+            
+            .image-back {
+                width: 90%;
+                height: 300px;
+        
+            }
+            
+            .image-front {
+                width: 80%;
+                height: 300px;
+                top: 40px;
+                left: 0;
+            }
+            
+            .services-content {
+                flex-direction: column;
+            }
+            
+            .services-list {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .image-overlay {
+                height: 300px;
+            }
+            
+            .image-back {
+                height: 200px;
+            }
+            
+            .image-front {
+                height: 200px;
+                top: 80px;
+            }
+            
+            .stat-item {
+                width: 50%;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-hard-hat"></i>
+                <h1>Build<span>Right</span> Construction</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Create The Constructions You Want Here</h2>
+                <p>We provide the best home design, construction and maintenance services for you and your family. With over a decade of experience, we transform your vision into reality.</p>
+                <a href="#" class="cta-button">Get Started Today</a>
+            </div>
+        </section>
+        
+        <!-- Image Overlay Section -->
+        <section class="image-overlay">
+            <div class="image-back"></div>
+            <div class="image-front"></div>
+        </section>
+        
+        <!-- Services Section -->
+        <section class="services">
+            <div class="section-header">
+                <h3>Our Services</h3>
+                <p>Comprehensive solutions for all your construction needs</p>
+            </div>
+            <div class="services-content">
+                <div class="services-list">
+                    <ul>
+                        <li><i class="fas fa-drafting-compass"></i> Custom Home Design</li>
+                        <li><i class="fas fa-home"></i> New Construction</li>
+                        <li><i class="fas fa-tools"></i> Renovation & Remodeling</li>
+                        <li><i class="fas fa-hammer"></i> Structural Repairs</li>
+                        <li><i class="fas fa-paint-roller"></i> Interior & Exterior Finishing</li>
+                        <li><i class="fas fa-truck"></i> Material Supply & Logistics</li>
+                    </ul>
+                    <a href="#" class="projects-button">View Projects →</a>
+                </div>
+                <div class="services-list">
+                    <p>At BuildRight Construction, we pride ourselves on delivering exceptional craftsmanship and unparalleled customer service. Our team of experienced professionals works closely with you to ensure every detail of your project exceeds expectations.</p>
+                    <p>We use only the highest quality materials and employ sustainable building practices to create structures that stand the test of time while minimizing environmental impact.</p>
+                    <p>From initial concept to final completion, our comprehensive approach ensures a seamless construction experience with transparent communication at every stage.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-content">
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Years of Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">200</div>
+                        <div class="stat-label">Complete Projects</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Expert Team Members</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support Available</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section class="projects">
+            <div class="section-header">
+                <h3>Featured Projects</h3>
+                <p>Discover our latest construction masterpieces</p>
+            </div>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="project-info">
+                        <h4>Modern Hillside Residence</h4>
+                        <p>A stunning contemporary home with panoramic views and sustainable design.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="project-info">
+                        <h4>Urban Loft Renovation</h4>
+                        <p>Transformation of a historic warehouse into modern living spaces.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="project-info">
+                        <h4>Commercial Complex</h4>
+                        <p>State-of-the-art office building with innovative structural design.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h4>About Us</h4>
+                        <p>BuildRight Construction has been building dreams since 2010. Our commitment to quality, integrity, and customer satisfaction has made us a leader in the construction industry.</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#">Residential Construction</a></li>
+                            <li><a href="#">Commercial Projects</a></li>
+                            <li><a href="#">Renovation & Remodeling</a></li>
+                            <li><a href="#">Architectural Design</a></li>
+                            <li><a href="#">Project Management</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Contact Us</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Construction Ave, Builders City</p>
+                        <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> info@buildright.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 8AM - 6PM</p>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2023 BuildRight Construction. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
